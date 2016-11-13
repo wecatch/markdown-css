@@ -34,7 +34,7 @@ h1,p,h2,pre {
 }
 ```
 
-*\* selector*
+*all element*
 
 ```css
 * {
