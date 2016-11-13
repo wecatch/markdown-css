@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+from __future__ import absolute_import, print_function
+
+import os
+import codecs
+from docopt import docopt
+from pyquery import PyQuery
+from markdown_css import parse_style
+
+
+def main(input_file, out, style):
+    if not os.path.isdir(out):
+        print(u'warning : %s is not dir' % out)
+        return
+
+    if not os.path.isfile(style):
+        print(u'warning : %s is not file' % style)
+        return
+
+    in_f = codecs.open(input_file, 'r', 'utf-8')
+    out_f = codecs.open(out + input_file, 'w', 'utf-8')
+    html_attr = parse_style(open(style, 'r').read())
+    content = in_f.read()
+    html = PyQuery(content)
+    for k, v in html_attr.items():
+        if k == '*':
+            continue
+        html(k).attr('style', v)
+
+    out_f.write(html.outerHtml())
+
+
+if __name__ == '__main__':
+    helpdoc = """markdown-css command line.
+    Usage:
+    markdown-css (-h | --help)
+    markdown-css <input> [--out=<out>] [--style=<style>]
+
+    Options:
+    -h,  --help        Show help document
+    --out=<out> Html out path [default: 'public/']
+    --style=<style> Markdown css file [default: 'style.css']
+    """
+    rgs = docopt(helpdoc)
+    input_file = rgs.get('<input>')
+    out = rgs.get('--out', 'public/')
+    style = rgs.get('--style', 'style.css')
+    main(input_file, out, style)
