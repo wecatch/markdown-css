@@ -23,8 +23,8 @@ import cssutils
 # is zero for an official release, positive for a development branch,
 # or negative for a release candidate or beta (after the base version
 # number has been incremented)
-version = "0.0.1"
-version_info = (0, 0, 1, 0)
+version = "0.0.2"
+version_info = (0, 0, 2, 0)
 
 
 def parse_style(css):
