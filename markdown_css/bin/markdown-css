@@ -19,8 +19,9 @@ def main(input_file, out, style):
         print(u'warning : %s is not file' % style)
         return
 
+    out_path = os.path.join(out, input_file)
     in_f = codecs.open(input_file, 'r', 'utf-8')
-    out_f = codecs.open(out + input_file, 'w', 'utf-8')
+    out_f = codecs.open(out_path, 'w', 'utf-8')
     html_attr = parse_style(open(style, 'r').read())
     content = in_f.read()
     html = PyQuery(content)
@@ -40,11 +41,15 @@ if __name__ == '__main__':
 
     Options:
     -h,  --help        Show help document
-    --out=<out> Html out path [default: 'public/']
+    --out=<out> Html out path [default: 'public']
     --style=<style> Markdown css file [default: 'style.css']
     """
     rgs = docopt(helpdoc)
     input_file = rgs.get('<input>')
-    out = rgs.get('--out', 'public/')
-    style = rgs.get('--style', 'style.css')
+    out = rgs.get('--out')
+    style = rgs.get('--style')
+    if not out:
+        out = 'public'
+    if not style:
+        style = 'style.css'
     main(input_file, out, style)
