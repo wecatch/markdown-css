@@ -3,6 +3,23 @@ makrdown-css
 
 Markdown css is a command tool to convert css style into markdown inline style.
 
+## Install
+
+*maxOS*
+
+```bash
+xcode-select --install
+pip install markdown-css
+```
+
+**linux**
+
+```bash
+apt-get install libxml2-dev libxslt1-dev python-dev
+apt-get install python-lxml
+pip install markdown-css
+```
+
 ## Getting started
 
 ```bash
@@ -41,4 +58,3 @@ h1,p,h2,pre {
     font-size: 14px
 }
 ```
-
