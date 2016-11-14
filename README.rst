@@ -12,6 +12,6 @@ Getting started
     mkdir public
     touch style.css
     markdown -h
-    markdown-css pub.html --style=style.css --out=public/
+    markdown-css pub.html --style=style.css --out=public
 
 `Doc <https://github.com/wecatch/markdown-css/blob/master/README.md>`_ 

@@ -27,7 +27,7 @@ pip install markdown-css
 mkdir public
 touch style.css
 markdown -h
-markdown-css pub.html --style=style.css --out=public/
+markdown-css pub.html --style=style.css --out=public
 ```
 
 ## Selector
