@@ -58,3 +58,13 @@ h1,p,h2,pre {
     font-size: 14px
 }
 ```
+
+*pseudo-selector*
+
+```
+h1:before {
+    content: '#'
+}
+
+```
+> Pseudo-selector can't be used in inline-style, these selectos are write into <style> tag

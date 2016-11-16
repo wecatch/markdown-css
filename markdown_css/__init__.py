@@ -12,9 +12,12 @@
 
 """Markdown css tools."""
 
-from __future__ import absolute_import, division, print_function, with_statement
+from __future__ import (
+    absolute_import, division, print_function, with_statement)
+
+import logging
 from collections import defaultdict
-import cssutils
+from cssutils import CSSParser
 
 # version is a human-readable version number.
 
@@ -23,46 +26,50 @@ import cssutils
 # is zero for an official release, positive for a development branch,
 # or negative for a release candidate or beta (after the base version
 # number has been incremented)
-version = "0.0.2"
-version_info = (0, 0, 2, 0)
+version = "0.0.3"
+version_info = (0, 0, 3, 0)
 
 
-def parse_style(css):
-    html_attr = defaultdict(lambda:'')
-    s = cssutils.parseString(css)
+def to_inline_style(style):
+    return ';'.join(['%s:%s' % (
+        k, style.getPropertyValue(k)) for k in style.keys()]) + ';'
 
-    # map all selector
-    for r in s:
-        selector = r.selectorText.strip()
-        if selector !='*':
-            if selector.find(',') >= 0:
-                [html_attr[i.strip()] for i in selector.split(',')]
-            else:
-                html_attr[selector]
+
+def parse_style(cssText):
+    element_dict = defaultdict(lambda: '')
+    # inline style not support pseudo-selector, write into <style> tag
+    pseudo_selector_list = []
+    parser = CSSParser(loglevel=logging.ERROR)
+    cssStyle = parser.parseString(cssText)
+
+    # init all selector
+    for r in cssStyle:
+        # skip * selector
+        if r.selectorText.find('*') >= 0:
+            continue
+
+        # skip pseudo-selector like a:hover
+        if r.selectorText.find(':') >= 0:
+            continue
+
+        for selector in r.selectorList:
+            element_dict[selector.selectorText]
 
     def append_all_selector(style):
-        for k in html_attr.keys():
-            html_attr[k] += style
+        for k in element_dict.keys():
+            element_dict[k] += style
 
-    for r in s:
-        style = r.style.cssText.replace('\n', '').strip()
-        selector = r.selectorText.strip()
-        if not style.endswith(';'):
-            style += ';'
+    for r in cssStyle:
+        if r.selectorText.find('*') >= 0 and r.selectorText.find(':') < 0:
+            append_all_selector(to_inline_style(r.style))
+            continue
 
-        # element, element
-        selector_list = []
-        if selector.find(',') >= 0:
-            selector_list = selector.split(',')
-        # *
-        if selector == '*':
-            append_all_selector(style)
+        if r.selectorText.find(':') >= 0:
+            pseudo_selector_list.append(r.cssText)
+            continue
 
-        for i in selector_list:
-            html_attr[i.strip()] += style
+        for selector in r.selectorList:
+            element_dict[selector.selectorText] += to_inline_style(r.style)
 
-        # element
-        if not selector_list:
-            html_attr[selector] += style
-
-    return html_attr
+    print(pseudo_selector_list)
+    return element_dict, pseudo_selector_list
