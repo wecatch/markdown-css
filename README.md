@@ -77,6 +77,7 @@ h1,p,h2,pre {
 h1:before {
     content: '#'
 }
+```
 
 *child element seletor*
 
