@@ -22,10 +22,12 @@ def main(input_file, out, style):
     out_path = os.path.join(out, input_file)
     in_f = codecs.open(input_file, 'r', 'utf-8')
     out_f = codecs.open(out_path, 'w', 'utf-8')
-    e_dict, p_list = parse_style(codecs.open(style, 'r', 'utf-8').read())
+    e_list, e_dict, p_list = parse_style(codecs.open(style, 'r', 'utf-8').read())
     content = in_f.read()
     html = PyQuery(content)
-    for k, v in e_dict.items():
+    for k in e_list:
+        _v = html(k).attr('style')
+        v = (_v if _v else '') + e_dict[k]
         html(k).attr('style', v)
 
     if p_list:

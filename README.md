@@ -30,6 +30,18 @@ markdown -h
 markdown-css pub.html --style=style.css --out=public
 ```
 
+### Themes
+
+https://github.com/wecatch/markdown-css/tree/master/themes
+
+### Demo
+
+```
+git clone https://github.com/wecatch/markdown-css.git
+cd themes
+markdown-css demo.html --style=simple.css --out=public
+```
+
 ## Selector
 
 markdown-css support css selector like these:
@@ -61,10 +73,18 @@ h1,p,h2,pre {
 
 *pseudo-selector*
 
-```
+```css
 h1:before {
     content: '#'
 }
 
+*child element seletor*
+
+```css
+blockquote p {
+    color:#888;
+}
+
 ```
 > Pseudo-selector can't be used in inline-style, these selectos are write into <style> tag
+
