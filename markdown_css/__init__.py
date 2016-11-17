@@ -39,7 +39,7 @@ def parse_style(cssText):
     element_dict = defaultdict(lambda: '')
     # inline style not support pseudo-selector, write into <style> tag
     pseudo_selector_list = []
-    parser = CSSParser(loglevel=logging.ERROR)
+    parser = CSSParser(loglevel=logging.CRITICAL)
     cssStyle = parser.parseString(cssText)
 
     # init all selector
@@ -59,6 +59,7 @@ def parse_style(cssText):
         for k in element_dict.keys():
             element_dict[k] += style
 
+    element_list = []
     for r in cssStyle:
         if r.selectorText.find('*') >= 0 and r.selectorText.find(':') < 0:
             append_all_selector(to_inline_style(r.style))
@@ -69,7 +70,7 @@ def parse_style(cssText):
             continue
 
         for selector in r.selectorList:
+            element_list.append(selector.selectorText)
             element_dict[selector.selectorText] += to_inline_style(r.style)
 
-    print(pseudo_selector_list)
-    return element_dict, pseudo_selector_list
+    return element_list, element_dict, pseudo_selector_list
