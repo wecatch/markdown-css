@@ -17,9 +17,9 @@ html_head='<!DOCTYPE html>
 html_end='</body>
 </html>'
 
-echo $html_head$filecontent$html_end>index.html 
+# echo $html_head$filecontent$html_end>index.html 
 
-markdown-css index.html --style=simple.css
+# markdown-css index.html --style=simple.css
 
-cp public/index.html .
+# cp public/index.html .
 

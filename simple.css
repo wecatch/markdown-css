@@ -9,7 +9,7 @@ p{
   box-sizing: border-box !important;
   word-wrap: break-word !important;
   text-align: justify;
-  margin: 20px 0 !important;
+  margin: 24px 0 !important;
 }
 
 blockquote {
@@ -31,13 +31,15 @@ strong {
 
 body {
   font-size: 15px;
+  width: 900px;
+  margin: 0 auto;
 }
 
-pre {
+p code {
   background-color: #f8f8f8;
   border-radius: 3px;
   word-wrap: break-word;
-  padding: 12px 13px;
+  padding: 6px 13px;
   font-size: 13px;
   color: #898989;
 }
@@ -59,7 +61,10 @@ h1 {
 h2 {
     border-left: 4px solid #71BA51 !important;
     font-size: 18px !important;
-    margin: 0 10px;
+}
+
+h3 {
+    border-left: 2px solid #71BA51 !important;
 }
 
 a {
