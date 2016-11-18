@@ -12,8 +12,8 @@ Markdown-css 是一个命令行工具，用来把 css 样式转换成 html 内�
 
 ```bash
 
-mkdir public
-markdown-css demo.html --style=style.css
+    mkdir public
+    markdown-css demo.html --style=style.css
 
 ```
 
@@ -31,17 +31,19 @@ markdown-css demo.html --style=style.css
 
 
 ```bash
-xcode-select --install
-pip install markdown-css
+
+    xcode-select --install
+    pip install markdown-css
 ```
 
 在 Ubuntu 中安装
 
 
 ```bash
-apt-get install libxml2-dev libxslt1-dev python-dev
-apt-get install python-lxml
-pip install markdown-css
+
+    apt-get install libxml2-dev libxslt1-dev python-dev
+    apt-get install python-lxml
+    pip install markdown-css
 ```
 
 `markdown-css` 没有在 windows 下测试过，为了获得最佳体验，最好使用 macOS 和 linux。
