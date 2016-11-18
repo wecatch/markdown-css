@@ -4,7 +4,7 @@ markdown_py index.md -f index.html
 
 filecontent=`cat index.html`
 
-$html_head='<!DOCTYPE html>
+html_head='<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,10 @@ $html_head='<!DOCTYPE html>
 </head>
 <body>'
 
-$html_end='</body>
+html_end='</body>
 </html>'
-echo $html_end
-# echo $html_head$filecontent$html_end >> index.html
+
+echo $html_head$filecontent$html_end>index.html 
 
 markdown-css index.html --style=simple.css
 
