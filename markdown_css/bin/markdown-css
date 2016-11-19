@@ -10,16 +10,19 @@ from pyquery import PyQuery
 from markdown_css import parse_style
 
 
-def main(input_file, out, style):
+def main(input_file, out, style, name):
     if not os.path.isdir(out):
-        print(u'warning : %s is not dir' % out)
+        print(u'warning : %s is not a dir' % out)
         return
 
+    if not name.endswith('.html'):
+        name += '.html'
+
+    out_path = os.path.join(out, name)
     if not os.path.isfile(style):
         print(u'warning : %s is not file' % style)
         return
 
-    out_path = os.path.join(out, input_file)
     in_f = codecs.open(input_file, 'r', 'utf-8')
     out_f = codecs.open(out_path, 'w', 'utf-8')
     e_list, e_dict, p_list = parse_style(codecs.open(style, 'r', 'utf-8').read())
@@ -31,28 +34,35 @@ def main(input_file, out, style):
         html(k).attr('style', v)
 
     if p_list:
-        html('style').html('\n'.join(p_list))
-        
+        style = PyQuery('<style type="text/css"></style>')
+        style('style').html('\n'.join(p_list))
+        html('head').append(style)
+
     out_f.write(html.outerHtml())
-    
+
 
 if __name__ == '__main__':
     helpdoc = """markdown-css command line.
     Usage:
     markdown-css (-h | --help)
-    markdown-css <input> [--out=<out>] [--style=<style>]
+    markdown-css <input> [--out=<out>] [--name=<name>] [--style=<style>]
 
     Options:
     -h,  --help        Show help document
     --out=<out> Html out path [default: 'public']
+    --name=<name> Out file name [default: <input>]
     --style=<style> Markdown css file [default: 'style.css']
     """
     rgs = docopt(helpdoc)
     input_file = rgs.get('<input>')
     out = rgs.get('--out')
     style = rgs.get('--style')
+    name = rgs.get('--name')
     if not out:
         out = 'public'
     if not style:
         style = 'style.css'
-    main(input_file, out, style)
+    if not name:
+        name = input_file
+
+    main(input_file, out, style, name)

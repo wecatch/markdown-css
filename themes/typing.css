@@ -30,7 +30,7 @@ strong {
 }
 
 body {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 pre {
@@ -51,12 +51,23 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-    font-size: 2.5em !important;
+    font-size: 2.0em !important;
 }
 
 h2 {
     font-size: 1.8em !important;
-    margin: 0 10px;
+}
+
+h3 {
+    font-size: 1.6em !important;
+}
+
+h4 {
+    font-size: 1.4em !important;
+}
+
+h3 {
+    font-size: 1.2em !important;
 }
 
 a {

@@ -26,8 +26,6 @@ strong {
 
 body {
   font-size: 15px;
-  width: 90%;
-  margin: 0 auto;
 }
 
 pre {
@@ -56,7 +54,7 @@ h1:before, h2:before{
     left: -0.8em;
     top: -2px;
     font-size: 1.2em;
-    font-weight: bold
+    font-weight: bold;
 }
 
 h1 {

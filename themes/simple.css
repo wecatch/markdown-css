@@ -59,7 +59,10 @@ h1 {
 h2 {
     border-left: 4px solid #71BA51 !important;
     font-size: 18px !important;
-    margin: 0 10px;
+}
+
+h3 {
+  border-left: 4px solid #71BA51 !important;
 }
 
 a {

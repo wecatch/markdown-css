@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>markdown-css</title></head>
+<body><h1>用 markdown 自定义排版公众号文章</h1>
+<p>可能吧的阿禅的之前写了一篇文章介绍了他是如何排版公众号文章的：思路就是用 markdown 写作，然后使用专门的工具导出为 html 文件，最后把自定义的样式应用到导出的文件，复制粘贴最终的内容到微信公众号。</p>
+<p>在这篇文章中，我将一步步说明如何把阿禅的思路应用到时间中。</p>
+<h2>选择一款舒适的 markdown 写作工具</h2>
+<p>markdown 的写作工具有很多，这里我只介绍两款 mac 下的软件，非常好用，而且免费开源</p>
+<ul><li>
+<a href='http://www.typora.io/'>Typora</a> </li>
+<li>
+<a href='https://github.com/MacDownApp/macdown'>macdown</a> </li>
+</ul>
+<p>这两款 markdown 编辑器都支持所见即所得写作方式，支持多种主题、支持导出各种格式的文件。</p>
+<h2>学习 markdown 语法</h2>
+<p>markdown 的语法非常简单，对于一般性的写作，只需要记住一些常用的标记即可，markdown 的教程很多，在此推荐 <strong><a href='http://wowubuntu.com/markdown/' target='_blank' >http://wowubuntu.com/markdown/</a></strong>。</p>
+<h2>导出不带样式的 html 文件</h2>
+<p>借助写作工具，markdown 可以非常容易地导出 html 文件，为了可以自定义样式和排版，一定要选择<strong>无样式</strong>的导出。</p>
+<h2>自定义导出 html 文件的样式</h2>
+<p>为了可以完全掌控排版的效果和样式，你需要编写完整的 css 来应用到导出的文件，对此你可以选择学习编写完整的 css，或者请教你身边的程序员朋友帮你完成这一步。</p>
+<h2>应用样式到 html 文件</h2>
+<p>想要自定义样式完全发挥作用，这些自定义样式最终应该是以<strong>内联</strong>的方式出现在导出的 html 文件中，这也是微信公众号提供的这类富文本编辑器的功能所在，为了把你在上一步编写的外部 css 变成 html 的内联样式，你需要像阿禅在文章中说的那样：写一个 replace 的函数脚本，挨个替换。为了简化这一步的操作，我编写了一个小工具 <strong>markdown-css</strong> 来完成 css 样式从外部到内联的转换。</p>
+<p>markdown-css 的使用很简单，文末会附有相应的地址告诉你该如何安装和使用，类似于这样：</p>
+<pre lang='undefined'>
+markdown-css post.html --style=mystyle.css --out=public
+</pre>
+<p>markdown-css 会把上一步导出的 html 文件与你编写的样式进行处理，然后输出带有内联样式的 html 文件，默认在当前目录的 <strong>public</strong> 下。双击打开输出的 html 文件，然后复制粘贴到微信公众号。</p>
+<p>至此，你的自定义排版就大功告成了。</p>
+<hr />
+<p>如果你在实践的过程中遇到什么问题，可以反馈给我，也许可以帮助到你。</p>
+<blockquote><p><a href='http://mp.weixin.qq.com/s?__biz=MjM5ODQwMjA4MA==&mid=2649293603&idx=1&sn=57f38200555dcba76d6358594416c089&mpshare=1&scene=1&srcid=1106ssUPcBWLZUq7D9vqXEkj#rd'>可能吧的文章是如何排版的？</a></p>
+<p><a href='http://wowubuntu.com/markdown/'>markdown</a></p>
+<p><a href='http://wecatch.me/markdown-css/'>markdown-css</a></p>
+</blockquote>
+</body>
+</html>
