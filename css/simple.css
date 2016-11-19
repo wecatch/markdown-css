@@ -1,7 +1,27 @@
 * {
   color:#3e3e3e;
 }
-  
+
+.header {
+    height: 60px;
+    color: #e9e9e9;
+    padding-top: 90px;
+    font-weight: 300;
+    overflow: hidden;
+    text-align: center;
+}
+
+.header a {
+    display: inline-block;
+    font-size: 2.5em;
+    margin-right: 30px;
+}
+
+a:hover {
+    color: #FD5B03 !important;
+    text-decoration: underline !important;
+}
+
 p{
   letter-spacing: 1px !important;
   line-height: 1.7 !important;
@@ -106,4 +126,34 @@ pre {
 
 .footer p {
   text-align: center !important;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.container ul {
+    list-style: none;
+}
+
+.container li {
+    display: inline-block;
+    width: 420px;
+    height: 380px;
+    margin-right: 20px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.container li img {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+.container li a {
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 30px;
 }

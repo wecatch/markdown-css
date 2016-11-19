@@ -2,9 +2,14 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<link rel="stylesheet" href="simple.css">
+<link rel="stylesheet" href="css/simple.css">
 <title>markdown-css</title></head>
-<body><h1>makrdown-css</h1>
+<body>
+<div class="header" >
+    <a href="https://github.com/wecatch/markdown-css/">Github</a>
+    <a href="#themes">Themes</a>
+</div>
+<h1>makrdown-css</h1>
 <p>Markdown-css 是一个命令行工具，用来把 css 样式转换成 html 内联样式。</p>
 <h1>为什么是 markdown-css </h1>
 <p>可能吧的阿禅的在<a href='http://mp.weixin.qq.com/s?__biz=MjM5ODQwMjA4MA==&mid=2649293603&idx=1&sn=57f38200555dcba76d6358594416c089&mpshare=1&scene=1&srcid=1106ssUPcBWLZUq7D9vqXEkj#rd'>可能吧的文章是如何排版的？</a>中介绍了他是如何排版公众号文章的。思路就是用 markdown 写作，然后使用专门的工具导出为 html 文件，最后把自定义的样式应用到导出的文件，复制粘贴内容到微信公众号。想要自定义样式在微信公众号起作用，这些样式必须是内联的 <code>inline-style</code>，所以才有了 <code>markdown-css</code>。</p>
@@ -43,6 +48,31 @@ makrdown-css 现在只支持非常简单的 css 选择器，但对于 markdown �
 <li>
 发邮件给我们 <a href='mailto://wecatch.me@gmail.com' target='_blank' >wecatch.me@gmail.com</a></li>
 </ul>
+<h1  id="themes" >themes</h1>
+<div class="container" >
+    <ul>
+        <li>
+            <img src="img/style.jpg" alt="">
+            <a href="https://github.com/wecatch/markdown-css/blob/master/themes/style.css">style.css</a>
+            <a href="themes/style.html">Demo</a>
+        </li>
+        <li>
+            <img src="img/simple.jpg" alt="">
+            <a href="https://github.com/wecatch/markdown-css/blob/master/themes/simple.css">simple.css</a>
+            <a href="themes/simple.html">Demo</a>
+        </li>
+        <li>
+            <img src="img/typing.jpg" alt="">
+            <a href="https://github.com/wecatch/markdown-css/blob/master/themes/typing.css">typing.css</a>
+            <a href="themes/typing.html">Demo</a>
+        </li>
+        <li>
+            <img src="img/apollo.jpg" alt="">
+            <a href="https://github.com/wecatch/markdown-css/blob/master/themes/apollo.css">apollo.css</a>
+            <a href="themes/apollo.html">Demo</a>
+        </li>
+    </ul>
+</div>
 <div class="footer">
     <p>
         Powered by <a href="http://wecatch.me">wecatch</a>
