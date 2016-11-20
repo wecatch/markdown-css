@@ -87,5 +87,5 @@ blockquote p {
 }
 
 ```
-> Pseudo-selector can't be used in inline-style, these selectos are write into <style> tag
+> Pseudo-selector can't be used in inline-style, these selectos are write into \<style\> tag
 
