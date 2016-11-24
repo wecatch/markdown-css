@@ -27,7 +27,7 @@ pip install markdown-css
 mkdir public
 touch style.css
 markdown -h
-markdown-css pub.html --style=style.css --out=public
+markdown-css markdown.html --style=style.css --out=public
 ```
 
 ### Themes
@@ -39,7 +39,7 @@ https://github.com/wecatch/markdown-css/tree/master/themes
 ```
 git clone https://github.com/wecatch/markdown-css.git
 cd themes
-markdown-css demo.html --style=simple.css --out=public
+markdown-css markdown.html --style=simple.css --out=public
 ```
 
 ## Selector
