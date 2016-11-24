@@ -13,7 +13,7 @@ markdown-css  可以一键把 css 样式转换成内联样式，并输出 html �
 
 ```shell
 mkdir public
-markdown-css demo.html --style=style.css
+markdown-css markdown.html --style=style.css
 ```
 
 默认生成同名的 html 文件并存放在当前目录的 public 中，双击用浏览器打开输出的文件，然后复制粘贴到公众号的编辑中，一次自定义排版就完成了。
