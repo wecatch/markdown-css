@@ -31,8 +31,16 @@ version_info = (0, 0, 4, 0)
 
 
 def to_inline_style(style):
-    return ';'.join(['%s:%s' % (
-        k, style.getPropertyValue(k)) for k in style.keys()]) + ';'
+    as_list = []
+    for k in style.keys():
+        v = style.getPropertyValue(k)
+        p = style.getPropertyPriority(k)
+        if p:
+            as_list.append('%s:%s !%s' % (k, v, p))
+        else:
+            as_list.append('%s:%s' % (k, v))
+
+    return ';'.join(as_list) + ';'
 
 
 def parse_style(cssText):
