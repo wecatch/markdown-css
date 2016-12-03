@@ -1,5 +1,9 @@
 markdown-css changes log
 =====================
+## 0.0.4
+
+- fix important rule lost
+- add xiaolai.css
 
 ## 0.0.3
 
