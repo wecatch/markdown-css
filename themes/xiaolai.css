@@ -1,16 +1,19 @@
-* {
+body {
   color:#3e3e3e;
+  font-size: 16px;
+  font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
 }
-  
+
 p{
-  letter-spacing: 1px !important;
+  letter-spacing: 0.1em !important;
   line-height: 1.7 !important;
   min-height: 1em !important;
   box-sizing: border-box !important;
   word-wrap: break-word !important;
   text-align: justify;
+  color: #3e3e3e;
   margin: 20px 0 !important;
-  margin: 1.5em 5px !important
+  margin: 1.5em 5px !important;
 }
 
 blockquote {
@@ -18,7 +21,6 @@ blockquote {
     border-left: 3px solid rgb(0, 150, 136);
     color: rgb(119, 119, 119);
     quotes: none;
-    margin-left: 0.8em;
     padding: 0px 1em !important;
 }
 
@@ -29,10 +31,6 @@ blockquote p {
 
 strong {
     color: #bf360c;
-}
-
-body {
-  font-size: 15px;
 }
 
 pre {
@@ -46,23 +44,31 @@ pre {
 
 h1,h2,h3,h4,h5,h6 {
     font-weight: bold !important;
-    color: #009688 !important;
-    text-align: center !important;
+    color: #249991 !important;
+    text-align: left; !important;
     margin: 1.5em 5px !important;
-    padding: 0.5em 1em !important;
-    border-bottom: 1px solid rgb(238, 238, 238) !important;
+    padding: 0.5em 0em !important;
+    // border-bottom: 1px solid rgb(238, 238, 238) !important;
 }
 
 h1 {
-    font-size: 22px !important;;
+    font-size: 24px !important;
 }
 
 h2 {
-    font-size: 20px !important;;
+    font-size: 22px !important;
 }
 
 h3 {
-    font-size: 18px !important;
+    font-size: 20px !important;
+}
+
+h4 {
+    font-size:  18px !important;
+}
+
+h5 {
+  font-size:  16px !important;
 }
 
 a {
@@ -71,11 +77,16 @@ a {
 }
 
 ul, ol {
-  padding-left: 30px;
+  padding-left: 30px !important;
+}
+
+ul li {
+  color: #898989 !important;
 }
 
 li {
-  line-height: 24px;
+  line-height: 24px !important;
+  margin-bottom: 5px !important;
 }
 
 hr {
@@ -86,4 +97,31 @@ hr {
 pre {
  background: #f2f2f2 !important;
  padding: 12px 13px;
+}
+
+table {
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
 }

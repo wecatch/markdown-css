@@ -26,8 +26,8 @@ from cssutils import CSSParser
 # is zero for an official release, positive for a development branch,
 # or negative for a release candidate or beta (after the base version
 # number has been incremented)
-version = "0.0.4"
-version_info = (0, 0, 4, 0)
+version = "0.0.5"
+version_info = (0, 0, 5, 0)
 
 
 def to_inline_style(style):

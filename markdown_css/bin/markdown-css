@@ -29,9 +29,13 @@ def main(input_file, out, style, name):
     content = in_f.read()
     html = PyQuery(content)
     for k in e_list:
-        _v = html(k).attr('style')
-        v = (_v if _v else '') + e_dict[k]
-        html(k).attr('style', v)
+        for css in e_dict[k].split(';'):
+            name_value = css.split(':')
+            if not name_value:
+                continue
+            if len(name_value) != 2:
+                continue
+            html(k).css(name_value[0], name_value[1])
 
     if p_list:
         style = PyQuery('<style type="text/css"></style>')
