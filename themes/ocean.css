@@ -39,7 +39,7 @@ body {
   overflow: auto;
   font-weight: normal;
   padding: 10px;
-  margin: 0;
+  margin: 0 auto;
   overflow-y: scroll;
   -webkit-text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
