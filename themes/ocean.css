@@ -38,7 +38,7 @@ body {
   height: 100%;
   overflow: auto;
   font-weight: normal;
-  padding: 10px;
+  padding: 0;
   margin: 0 auto;
   overflow-y: scroll;
   -webkit-text-size-adjust: none;
@@ -366,4 +366,11 @@ pre {
 
 code {
   white-space: pre;
+}
+
+@media only screen and (max-width: 692px) {
+  body {
+    width: 100%;
+    padding: 10px;
+  }
 }
