@@ -3,6 +3,22 @@ makrdown-css
 
 Markdown css is a command tool to convert css style into markdown inline style.
 
+## Theme Demo
+
+[apollo.css](http://wecatch.me/markdown-css/themes/apollo.html)
+
+[ocean.css](http://wecatch.me/markdown-css/themes/ocean.html)
+
+[simple.css](http://wecatch.me/markdown-css/themes/simple.html)
+
+[style.css](http://wecatch.me/markdown-css/themes/style.html)
+
+[typing.css](http://wecatch.me/markdown-css/themes/typing.html)
+
+[xiaolai.css](http://wecatch.me/markdown-css/themes/xiaolai.html)
+
+
+
 ## Install
 
 *maxOS*
