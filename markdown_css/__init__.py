@@ -18,6 +18,8 @@ from __future__ import (
 import logging
 from collections import defaultdict
 from cssutils import CSSParser
+from cssutils.css import CSSComment
+
 
 # version is a human-readable version number.
 
@@ -52,6 +54,9 @@ def parse_style(cssText):
 
     # init all selector
     for r in cssStyle:
+        if isinstance(r, CSSComment):
+            continue
+
         # skip * selector
         if r.selectorText.find('*') >= 0:
             continue
@@ -69,6 +74,9 @@ def parse_style(cssText):
 
     element_list = []
     for r in cssStyle:
+        if isinstance(r, CSSComment):
+            continue
+
         if r.selectorText.find('*') >= 0 and r.selectorText.find(':') < 0:
             append_all_selector(to_inline_style(r.style))
             continue
