@@ -1,5 +1,10 @@
 markdown-css changes log
 =====================
+
+## 0.0.5
+
+- fix [#5](https://github.com/wecatch/markdown-css/issues/5)
+
 ## 0.0.4
 
 - fix important rule lost
