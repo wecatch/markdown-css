@@ -42,7 +42,7 @@ def main(input_file, out, style, name):
         style('style').html('\n'.join(p_list))
         html('head').append(style)
 
-    out_f.write(html.outerHtml())
+    out_f.write(html.html(method='html'))
 
 
 if __name__ == '__main__':
