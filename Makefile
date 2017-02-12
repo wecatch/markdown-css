@@ -28,6 +28,11 @@ help:
 
 clean: clean-build clean-pyc clean-test clean-log ## remove all build, test, coverage and Python artifacts
 
+define VERSION_HELP_PYSCRIPT
+from markdown_css import version
+print("v"+version)
+endef
+export VERSION_HELP_PYSCRIPT
 
 clean-build: ## remove build artifacts
 	rm -fr build/
