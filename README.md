@@ -1,6 +1,8 @@
 makrdown-css
 =========
 
+[![pypi](https://img.shields.io/pypi/v/markdown_css.svg)](https://pypi.python.org/pypi/markdown-css)
+
 Markdown css is a command tool to convert css style into markdown inline style.
 
 ## Theme Demo
