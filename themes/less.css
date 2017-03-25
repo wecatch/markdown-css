@@ -1,35 +1,37 @@
 * {
   color:#3e3e3e;
 }
-  
-/*comment*/
+
+body {
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+    font-size: 15px;
+}
+
 p{
-  letter-spacing: 1px !important;
-  line-height: 1.7 !important;
-  min-height: 1em !important;
-  color: #898989;
+  line-height: 25.6px !important;
   box-sizing: border-box !important;
   word-wrap: break-word !important;
   text-align: justify;
-  margin: 20px 0 !important;
+  margin: 23.7px 0 !important;
 }
 
 blockquote {
-    border-left: 4px solid #1DABB8;
-    padding: 0 15px !important;
-    color: #777777;
+    border-left: 2px solid rgba(128,128,128,0.075);
+    background-color: rgba(128,128,128,0.05);
+    padding: 13px 15px !important;
     margin: 0px;
 }
 
-strong {
-    font-weight: normal;
-    border-bottom: 2px solid #BADA55;
-    color: #898989;
+blockquote p {
+  color: #898989;
+  margin: 0px;
 }
 
-body {
-  font-size: 15px;
+strong {
+    font-weight: 700;
+    color: #3e3e3e;
 }
+
 
 pre {
   background-color: #f8f8f8;
@@ -38,26 +40,14 @@ pre {
   overflow: scroll;
   padding: 12px 13px;
   font-size: 13px;
+  color: #898989;
 }
 
 h1,h2,h3,h4,h5,h6 {
     word-break: break-all !important;
-    margin: 20px 0;
-    padding-bottom: .3em;
-    line-height: 1.2;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
-}
-
-h1 {
-    border-bottom: 8px solid #71BA51 !important;
-    font-size: 20px !important;
-}
-
-h2 {
-    border-bottom: 5px solid #71BA51 !important;
-    font-size: 18px !important;
-    margin: 0 10px;
+    font-size: 16px;
 }
 
 a {
@@ -74,7 +64,7 @@ li {
 }
 
 hr {
-    height: 4px;
+    height: 2px;
     padding: 0;
     margin: 16px 0;
     background-color: #e7e7e7;
@@ -87,4 +77,8 @@ hr {
 pre {
  background: #f2f2f2 !important;
  padding: 12px 13px;
+}
+
+code {
+  color: #a71d5d;
 }

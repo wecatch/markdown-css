@@ -37,6 +37,7 @@ pre {
   background-color: #f8f8f8;
   border-radius: 3px;
   word-wrap: break-word;
+  overflow: scroll;
   padding: 12px 13px;
   font-size: 13px;
   color: #898989;
