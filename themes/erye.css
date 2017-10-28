@@ -1,0 +1,120 @@
+* {
+  color: #646464;
+  font-family: -apple-system-font, 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+  
+p{
+  letter-spacing: 1px !important;
+  line-height: 28px !important;
+  min-height: 1em !important;
+  box-sizing: border-box !important;
+  word-wrap: break-word !important;
+  text-align: justify;
+  margin: 20px 10px !important;
+}
+
+blockquote {
+    border-left: 10px solid rgba(128,128,128,0.075);
+    background-color: rgba(128,128,128,0.05);
+    padding: 13px 15px !important;
+    margin: 0px;
+}
+
+blockquote p {
+  color: #898989;
+  margin: 0px;
+}
+
+strong {
+    font-weight: 700;
+    // color: #bf360c;
+}
+
+body {
+  font-size: 15px;
+  padding: 0 30px;
+  width: 
+}
+
+pre {
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  word-wrap: break-word;
+  padding: 12px 13px;
+  font-size: 13px;
+  color: #898989;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    -webkit-font-smoothing: antialiased;
+    margin: 40px;
+    max-width: 100%;
+    min-height: 1em;
+    color: #189cc7;
+    text-align: center;
+    line-height: 25.200000762939453px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-bottom-width: 0.5px;
+    border-bottom-style: solid;
+    border-bottom-color: #189cc7;
+    white-space: normal;
+    text-rendering: optimizeLegibility !important;
+}
+
+h1 {
+    // border-left: 6px solid #71BA51 !important;
+    font-size: 20px !important;
+}
+
+h2 {
+    // border-left: 4px solid #71BA51 !important;
+    font-size: 18px !important;
+}
+
+h3 {
+    font-size: 16px;
+  // border-left: 4px solid #71BA51 !important;
+}
+
+h4 {
+  font-size: 15px;
+  // border-left: 2px solid #71BA51 !important; 
+}
+
+a {
+  color: #4183C4 !important;
+  text-decoration: none !important;
+}
+
+ul, ol {
+  padding-left: 30px;
+}
+
+li {
+  line-height: 24px;
+}
+
+hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+    border-bottom: 1px solid #ddd;
+}
+
+pre {
+ background: #f2f2f2 !important;
+ padding: 12px 13px;
+ overflow: auto;
+}
+
+code {
+  color: #a71d5d;
+  overflow: auto;
+}
+
+
