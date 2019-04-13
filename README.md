@@ -123,4 +123,4 @@ markdown-css markdown.html --style=style.css --out=public
 
 渲染之后的文档会导出在同目录下的 public 中，用 Chrome 浏览器打开渲染之后的同名文档，复制粘贴到微信公众号编辑器即可。
 
-注意: 由于微信公众号对 ul 和 ol 进行了转换，markdown-css 针对这两种标签进行了特殊处理，并且提供了 render 参数来选择是否要特殊处理 ul 和 ol，默认情况为是，可以根据自己的需要不特殊处理 ul 和 ol，只要 render 不等于 wechat 即可。
+> 注意: 由于微信公众号对 ul 和 ol 进行了转换，markdown-css 针对这两种标签进行了特殊处理，并且提供了 render 参数来选择是否要特殊处理 ul 和 ol，默认情况为是，可以根据自己的需要不特殊处理 ul 和 ol，只要 render 不等于 wechat 即可。
