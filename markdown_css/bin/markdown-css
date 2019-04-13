@@ -10,7 +10,28 @@ from pyquery import PyQuery
 from markdown_css import parse_style
 
 
-def main(input_file, out, style, name):
+def special_process_wechat_ol_ul(html):
+    while len(html("ul")) > 0:
+        result = []
+        for li in html("ul").eq(0).find("li"):
+            result.append(u'<span style="display:block" ><span style="margin-right: 10px;" >•</span>' + PyQuery(li).html() + '</span>')
+
+        html("ul").eq(0).replaceWith('<p>' + ''.join(result) + '</p>')
+
+    while len(html("ol")) > 0:
+        result = []
+        index = 1
+        for li in html("ol").eq(0).find("li"):
+            result.append(u'<span style="display:block" ><span style="margin-right: 10px;" >' +
+                          str(index) + '.</span>' + PyQuery(li).html() + '</span>')
+            index += 1
+
+        html("ol").eq(0).replaceWith('<p>' + ''.join(result) + '</p>')
+
+    return html
+
+
+def main(input_file, out, style, name, render):
     if not os.path.isdir(out):
         print(u'warning : %s is not a dir' % out)
         return
@@ -28,6 +49,8 @@ def main(input_file, out, style, name):
     e_list, e_dict, p_list = parse_style(codecs.open(style, 'r', 'utf-8').read())
     content = in_f.read()
     html = PyQuery(content)
+    if render == 'wechat':
+        html = special_process_wechat_ol_ul(html)
     for k in e_list:
         for css in e_dict[k].split(';'):
             name_value = css.split(':')
@@ -49,24 +72,28 @@ if __name__ == '__main__':
     helpdoc = """markdown-css command line.
     Usage:
     markdown-css (-h | --help)
-    markdown-css <input> [--out=<out>] [--name=<name>] [--style=<style>]
+    markdown-css <input> [--out=<out>] [--name=<name>] [--style=<style>] [--render=<render>]
 
     Options:
     -h,  --help        Show help document
     --out=<out> Html out path [default: 'public']
     --name=<name> Out file name [default: <input>]
     --style=<style> Markdown css file [default: 'style.css']
+    --render=<render> Html render by wechat or not [default: 'wechat']
     """
     rgs = docopt(helpdoc)
     input_file = rgs.get('<input>')
     out = rgs.get('--out')
     style = rgs.get('--style')
     name = rgs.get('--name')
+    render = rgs.get('--render')
     if not out:
         out = 'public'
     if not style:
         style = 'style.css'
     if not name:
         name = input_file
+    if not render:
+        render = 'wechat'
 
-    main(input_file, out, style, name)
+    main(input_file, out, style, name, render)

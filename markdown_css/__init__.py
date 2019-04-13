@@ -28,8 +28,8 @@ from cssutils.css import CSSComment
 # is zero for an official release, positive for a development branch,
 # or negative for a release candidate or beta (after the base version
 # number has been incremented)
-version = "0.0.6"
-version_info = (0, 0, 6, 0)
+version = "0.0.7"
+version_info = (0, 0, 7, 0)
 
 
 def to_inline_style(style):
