@@ -5,6 +5,8 @@ makrdown-css
 
 Markdown css is a command tool to convert css style into markdown inline style.
 
+[中文文档](README-zh_cn.md)
+
 ## Theme Demo
 
 [apollo.css](http://wecatch.me/markdown-css/themes/apollo.html)
