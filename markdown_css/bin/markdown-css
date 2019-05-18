@@ -9,6 +9,11 @@ from docopt import docopt
 from pyquery import PyQuery
 from markdown_css import parse_style
 
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name, get_all_lexers
+from pygments.formatters import HtmlFormatter
+from pygments.styles import get_style_by_name
+
 
 def special_process_wechat_ol_ul(html):
     while len(html("ul")) > 0:
@@ -31,7 +36,38 @@ def special_process_wechat_ol_ul(html):
     return html
 
 
-def main(input_file, out, style, name, render):
+def special_process_code(html):
+    all_langs = support_langs()
+    # print(all_langs)
+    for pre in html("pre"):
+        lang = PyQuery(pre).attr("lang")
+        if not lang:
+            lang = PyQuery(pre.find("code")).attr("lang")
+        if lang:
+            lang = lang.lower()
+        if lang == "shell":
+            lang = "bash"
+        if lang in all_langs:
+            codeHtml = highlightcode(lang, PyQuery(pre).text())
+            html(pre).replaceWith(codeHtml)
+
+    return html
+
+
+def support_langs():
+    all_support_languages = []
+    for i in get_all_lexers():
+        all_support_languages.append(i[0].lower())
+    return set(all_support_languages)
+
+
+def highlightcode(lang, code):
+    lexer = get_lexer_by_name(lang, stripall=True)
+    formatter = HtmlFormatter(cssclass="highlight", style=get_style_by_name('colorful'))
+    return highlight(code, lexer, formatter)
+
+
+def main(input_file, out, style, name, render, codehighlight):
     if not os.path.isdir(out):
         print(u'warning : %s is not a dir' % out)
         return
@@ -51,6 +87,8 @@ def main(input_file, out, style, name, render):
     html = PyQuery(content)
     if render == 'wechat':
         html = special_process_wechat_ol_ul(html)
+    if codehighlight == 'yes':
+        html = special_process_code(html)
     for k in e_list:
         for css in e_dict[k].split(';'):
             name_value = css.split(':')
@@ -80,6 +118,7 @@ if __name__ == '__main__':
     --name=<name> Out file name [default: <input>]
     --style=<style> Markdown css file [default: 'style.css']
     --render=<render> Html render by wechat or not [default: 'wechat']
+    --codehighlight=<codehighlight> Highlight code yes or no [default: 'no']
     """
     rgs = docopt(helpdoc)
     input_file = rgs.get('<input>')
@@ -87,6 +126,7 @@ if __name__ == '__main__':
     style = rgs.get('--style')
     name = rgs.get('--name')
     render = rgs.get('--render')
+    codehighlight = rgs.get('--codehighlight')
     if not out:
         out = 'public'
     if not style:
@@ -95,5 +135,7 @@ if __name__ == '__main__':
         name = input_file
     if not render:
         render = 'wechat'
+    if not codehighlight:
+        codehighlight = 'no'
 
-    main(input_file, out, style, name, render)
+    main(input_file, out, style, name, render, codehighlight)
