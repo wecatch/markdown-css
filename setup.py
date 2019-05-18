@@ -8,7 +8,7 @@ install_requires = [
 
 ]
 
-for k in ['docopt', 'cssutils', 'pyquery']:
+for k in ['docopt', 'cssutils', 'pyquery', 'Pygments==2.4.0']:
     try:
         __import__(k)
     except ImportError:
