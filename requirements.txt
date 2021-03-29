@@ -1,4 +1,4 @@
 docopt
 cssutils
 pyquery
-Pygments==2.4.0
+Pygments==2.7.4
